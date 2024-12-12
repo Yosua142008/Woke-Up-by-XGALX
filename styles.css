@@ -1,0 +1,270 @@
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #121212;
+  color: white;
+  margin: 0;
+  padding: 0 2vw;
+  box-sizing: border-box;
+}
+
+.wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Kontainer utama dengan ruang di tengah */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Mengatur agar elemen-elemen sejajar di bagian atas */
+  width: 100%;
+  max-width: 1200px;
+  gap: 2vw;
+  padding: 2vw;
+  box-sizing: border-box;
+}
+
+/* Bagian Kiri: Gambar dan Player Audio */
+.left-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  text-align: center;
+  margin-right: 20px; /* Menambahkan jarak antara bagian kiri dan kanan */
+}
+
+.left-container #img {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 2vh;
+  margin-bottom: 1.5vh; /* Memberikan jarak antara gambar dan pemutar audio */
+}
+
+.left-container #img img {
+  width: 100%;
+  height: auto;
+  max-width: 400px;
+  border-radius: 10px;
+}
+
+.player {
+  text-align: center;
+  background-color: #1e1e1e;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 400px; /* Sama dengan lebar gambar */
+  margin-top: 0; /* Menghapus margin-top di pemutar audio */
+}
+
+audio {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+/* Bagian Kanan: Lirik */
+.right-container {
+  width: 50%;
+  text-align: center;
+  margin-top: 2vh;
+}
+
+.lyrics-container {
+  width: 100%;
+  background-color: #1e1e1e;
+  line-height: 50px;
+  border-radius: 10px;
+  height: 80vh;
+  overflow: scroll;
+  font-size: 1.2em;
+  color: #b3b3b3;
+  text-align: center;
+  box-sizing: border-box;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.lyric {
+  transition: all 0.3s ease;
+}
+
+.lyric.active {
+  color: #1db954;
+  font-weight: 900;
+  font-size: 1.5em;
+}
+
+.player audio::-webkit-media-controls-panel {
+  background-color: #1e1e1e;
+  border-radius: 10px;
+}
+
+.player audio::-webkit-media-controls-play-button,
+.player audio::-webkit-media-controls-mute-button,
+.player audio::-webkit-media-controls-timeline,
+.player audio::-webkit-media-controls-current-time-display,
+.player audio::-webkit-media-controls-time-remaining-display,
+.player audio::-webkit-media-controls-volume-slider,
+.player audio::-webkit-media-controls-seek-back-button,
+.player audio::-webkit-media-controls-seek-forward-button,
+.player audio::-webkit-media-controls-fullscreen-button {
+  filter: invert(100%);
+}
+
+/* Responsif untuk layar lebih kecil */
+/* Tablet */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Elemen-elemen disusun dalam kolom */
+    width: 90%;
+    gap: 2vh; /* Menambahkan jarak antar elemen */
+  }
+
+  .left-container,
+  .right-container {
+    width: 100%;
+    text-align: center;
+  }
+
+  .player {
+    width: 70%;
+    max-width: none; /* Hapus batasan lebar di mode mobile */
+  }
+
+  .lyrics-container {
+    width: 100%;
+    font-size: 1em;
+    height: 30vh;
+  }
+
+  .left-container #img {
+    width: 35%;
+  }
+}
+
+/* Tambahan */
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column; /* Elemen-elemen disusun dalam kolom */
+    width: 90%;
+    gap: 2vh; /* Menambahkan jarak antar elemen */
+  }
+
+  .left-container,
+  .right-container {
+    width: 100%;
+    text-align: center;
+  }
+
+  .player {
+    width: 70%;
+    max-width: none; /* Hapus batasan lebar di mode mobile */
+  }
+
+  .lyrics-container {
+    width: 100%;
+    font-size: 1em;
+    height: 31vh;
+  }
+
+  .left-container #img {
+    width: 45%;
+  }
+}
+
+/* Mobile Large */
+@media (max-width: 425px) {
+  .container {
+    flex-direction: column;
+    width: 100%;
+    gap: 2vh;
+  }
+
+  .left-container,
+  .right-container {
+    width: 100%;
+  }
+
+  .player {
+    width: 90%;
+  }
+
+  .lyrics-container {
+    width: 100%;
+    font-size: 0.9em;
+    height: 29vh;
+  }
+
+  .left-container #img {
+    width: 60%;
+  }
+}
+
+/* Mobile Medium */
+@media (max-width: 375px) {
+  .container {
+    flex-direction: column;
+    width: 100%;
+    gap: 2vh;
+  }
+
+  .left-container,
+  .right-container {
+    width: 100%;
+  }
+
+  .player {
+    width: 90%;
+  }
+
+  .lyrics-container {
+    width: 100%;
+    font-size: 0.9em;
+    height: 31vh;
+  }
+
+  .left-container #img {
+    width: 65%;
+  }
+}
+
+/* Mobile Small */
+@media (max-width: 320px) {
+  .container {
+    flex-direction: column;
+    width: 100%;
+    gap: 2vh;
+  }
+
+  .left-container,
+  .right-container {
+    width: 100%;
+  }
+
+  .player {
+    width: 90%;
+  }
+
+  .lyrics-container {
+    width: 100%;
+    font-size: 0.9em;
+    height: 37vh;
+  }
+
+  .left-container #img {
+    width: 65%;
+  }
+}
+
+/* Hide scrollbar */
+.lyrics-container::-webkit-scrollbar {
+  display: none;
+}
